@@ -1,0 +1,3 @@
+m.media-amazon.com:HSTS	0	17498	1511933302506,1,0
+connect.facebook.net:HSTS	0	17498	1543382902511,1,1
+8127728.fls.doubleclick.net:HSTS	0	17498	1511868502911,1,0
