@@ -16,7 +16,6 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends --allow-unauthenticated \
   curl \
   less \
-  policykit-1 \
   supervisor \
   pwgen sudo vim-tiny \
   net-tools \

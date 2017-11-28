@@ -6,6 +6,7 @@ echo "user:user4pass" | chpasswd
 echo "root:root4pass" | chpasswd
 chown -R root:root /root
 chown -R user:user /home/user
+usermod -aG sudo user
 
 if [[ ! -v VNC_PW ]]; then
   echo "VNC_PW is not set"
