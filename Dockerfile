@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER Me <email>
+MAINTAINER Shrek Is Love <github.com/ShrekIsLoveLife>
 
 ENV DEBIAN_FRONTEND noninteractive
 
