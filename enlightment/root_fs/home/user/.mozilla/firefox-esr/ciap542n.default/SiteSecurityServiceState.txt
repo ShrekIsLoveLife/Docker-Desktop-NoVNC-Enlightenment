@@ -1,0 +1,3 @@
+versioncheck-bg.addons.mozilla.org:HSTS	0	17499	1511975957153,1,0
+versioncheck-bg.addons.mozilla.org:HPKP	0	17499	1517159657154,1,1,WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=
+aus5.mozilla.org:HSTS	0	17499	1543511657964,1,0
