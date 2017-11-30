@@ -68,7 +68,7 @@ HTML_INDEX = '''<html><head>
         g = d.getElementsByTagName('body')[0],
         x = w.innerWidth || e.clientWidth || g.clientWidth,
         y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-        window.location.href = "redirect.html?width=" + ( x - 10 ) + "&height=" + (parseInt(y) - 10);
+        window.location.href = "redirect.html?width=" + ( x - 100 ) + "&height=" + (parseInt(y) - 100);
     </script>
     <title>Page Redirection</title>
 </head><body></body></html>'''
