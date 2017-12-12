@@ -18,6 +18,7 @@ else
   echo $VNC_PW | vncpasswd -f > /home/user/.vnc/passwd
   chown -R user: /home/user/.vnc
   chmod 0600 /home/user/.vnc/passwd
+  echo 'securitytypes=vncauth' >> /home/user/.vnc/config
 fi
 
 sudo -u user vncserver
