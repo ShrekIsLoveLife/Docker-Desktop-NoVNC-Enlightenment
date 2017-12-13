@@ -81,7 +81,7 @@ GET_VARS = '''
             var query = document.location.hash
                            .toString()
                            // get the query string
-                           .replace(/^.*?\#/, '')
+                           .replace(/^.*?#/, '')
                            .split('&');
 
             for(var i=0, l=query.length; i<l; i++) {
@@ -92,11 +92,13 @@ GET_VARS = '''
 
 
         if ( $_GET.hasOwnProperty('password') ) {
-            appender = '&password=' + $_GET['password'];
+            // appender = '&password=' + $_GET['password'];
+            localStorage.setItem('password',$_GET['password']);
         }
 
         if ( $_HASH.hasOwnProperty('password') ) {
-            appender = '&password=' + $_HASH['password'];
+            // appender = '#password=' + $_HASH['password'];
+            localStorage.setItem('password',$_HASH['password']);
         }
         '''
 
@@ -116,14 +118,14 @@ HTML_INDEX = '''<html><head>
     <title>Page Redirection</title>
 </head><body></body></html>'''
 
-
+# UI.initSetting and WebUtil.getConfigVar in  noVNC/include/ui.js or noVNC/app/ui.js
 HTML_REDIRECT = '''<html><head>
     <script type="text/javascript">
         var port = window.location.port;
         if (!port)
             port = window.location.protocol[4] == 's' ? 443 : 80;
         ''' + GET_VARS + '''
-        window.location.href = "vnc.html?autoconnect=1&autoscale=1&stylesheet=Black&resize=remote&true_color=true&reconnect=true&quality=8" + appender;
+        window.location.href = "vnc.html?autoconnect=true&stylesheet=Black&resize=remote&true_color=true&reconnect=true" + appender;
     </script>
     <title>Page Redirection</title>
 </head><body></body></html>'''
