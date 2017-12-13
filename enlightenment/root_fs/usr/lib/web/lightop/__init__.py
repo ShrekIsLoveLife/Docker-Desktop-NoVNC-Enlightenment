@@ -60,15 +60,40 @@ class BadRequest(Exception):
     pass
 
 
+GET_VARS = '''
+        var $_GET = {}, appender = '';
+        if(document.location.toString().indexOf('?') !== -1) {
+            var query = document.location
+                           .toString()
+                           // get the query string
+                           .replace(/^.*?\?/, '')
+                           // and remove any existing hash string (thanks, @vrijdenker)
+                           .replace(/#.*$/, '')
+                           .split('&');
+
+            for(var i=0, l=query.length; i<l; i++) {
+               var aux = decodeURIComponent(query[i]).split('=');
+               $_GET[aux[0]] = aux[1];
+            }
+        }
+
+        if ( $_GET.hasOwnProperty('password') ) {
+            appender = '&password=' + $_GET['password'];
+        }
+        '''
+
 HTML_INDEX = '''<html><head>
     <script type="text/javascript">
+
         var w = window,
         d = document,
         e = d.documentElement,
         g = d.getElementsByTagName('body')[0],
         x = w.innerWidth || e.clientWidth || g.clientWidth,
         y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-        window.location.href = "redirect.html?width=" + ( x - 100 ) + "&height=" + (parseInt(y) - 100);
+        ''' + GET_VARS + '''
+        w.location.href = "redirect.html?width=" + ( x - 100 ) + "&height=" + (parseInt(y) - 100) + appender;
+
     </script>
     <title>Page Redirection</title>
 </head><body></body></html>'''
@@ -79,10 +104,13 @@ HTML_REDIRECT = '''<html><head>
         var port = window.location.port;
         if (!port)
             port = window.location.protocol[4] == 's' ? 443 : 80;
-        window.location.href = "vnc.html?autoconnect=1&autoscale=1&stylesheet=Black&resize=remote&true_color=true&reconnect=true&quality=8";
+        ''' + GET_VARS + '''
+        window.location.href = "vnc.html?autoconnect=1&autoscale=1&stylesheet=Black&resize=remote&true_color=true&reconnect=true&quality=8" + appender;
     </script>
     <title>Page Redirection</title>
 </head><body></body></html>'''
+
+
 
 
 @app.route('/')
