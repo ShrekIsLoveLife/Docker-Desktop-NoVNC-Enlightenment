@@ -61,7 +61,7 @@ class BadRequest(Exception):
 
 
 GET_VARS = '''
-        var $_GET = {}, appender = '';
+        var $_GET = {}, $_HASH = {}, appender = '';
         if(document.location.toString().indexOf('?') !== -1) {
             var query = document.location
                            .toString()
@@ -77,8 +77,26 @@ GET_VARS = '''
             }
         }
 
+        if(document.location.hash.toString().indexOf('#') !== -1) {
+            var query = document.location.hash
+                           .toString()
+                           // get the query string
+                           .replace(/^.*?\#/, '')
+                           .split('&');
+
+            for(var i=0, l=query.length; i<l; i++) {
+               var aux = decodeURIComponent(query[i]).split('=');
+               $_HASH[aux[0]] = aux[1];
+            }
+        }
+
+
         if ( $_GET.hasOwnProperty('password') ) {
             appender = '&password=' + $_GET['password'];
+        }
+
+        if ( $_HASH.hasOwnProperty('password') ) {
+            appender = '&password=' + $_HASH['password'];
         }
         '''
 
@@ -109,7 +127,6 @@ HTML_REDIRECT = '''<html><head>
     </script>
     <title>Page Redirection</title>
 </head><body></body></html>'''
-
 
 
 
