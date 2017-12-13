@@ -103,6 +103,9 @@ GET_VARS = '''
         '''
 
 HTML_INDEX = '''<html><head>
+    <title>Please wait.</title>
+    </head><body>
+    Please wait.  
     <script type="text/javascript">
 
         var w = window,
@@ -115,11 +118,13 @@ HTML_INDEX = '''<html><head>
         w.location.href = "redirect.html?width=" + ( x - 100 ) + "&height=" + (parseInt(y) - 100) + appender;
 
     </script>
-    <title>Page Redirection</title>
-</head><body></body></html>'''
+</body></html>'''
 
 # UI.initSetting and WebUtil.getConfigVar in  noVNC/include/ui.js or noVNC/app/ui.js
 HTML_REDIRECT = '''<html><head>
+    <title>Please wait...</title>    
+    </head><body>
+    Please wait...
     <script type="text/javascript">
         var port = window.location.port;
         if (!port)
@@ -127,8 +132,7 @@ HTML_REDIRECT = '''<html><head>
         ''' + GET_VARS + '''
         window.location.href = "vnc.html?autoconnect=true&stylesheet=Black&resize=remote&true_color=true&reconnect=true" + appender;
     </script>
-    <title>Page Redirection</title>
-</head><body></body></html>'''
+</body></html>'''
 
 
 
