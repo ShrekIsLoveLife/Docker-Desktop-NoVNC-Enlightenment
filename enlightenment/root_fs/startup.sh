@@ -22,7 +22,7 @@ else
 fi
 
 sudo -u user vncserver
-
+mkdir /ssl/
 if [ -e /ssl/No.VNC.crt.pem ]
 then
   echo "self-signed certificate found"

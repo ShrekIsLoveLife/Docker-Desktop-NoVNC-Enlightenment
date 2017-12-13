@@ -20,6 +20,7 @@ RUN apt-get -y upgrade
 
 RUN apt-get install -y --no-install-recommends --allow-unauthenticated \
   curl \
+  iputils-ping \
   less \
   supervisor \
   pwgen sudo vim-tiny \

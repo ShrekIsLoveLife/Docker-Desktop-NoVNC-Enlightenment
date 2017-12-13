@@ -1,4 +1,4 @@
-FROM shrek/ubuntu-enlightment-base
+FROM shrek/ubuntu-enlightenment-base
 MAINTAINER Shrek Is Love <github.com/ShrekIsLoveLife>
 
 
