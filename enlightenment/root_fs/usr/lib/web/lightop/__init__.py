@@ -135,7 +135,6 @@ HTML_REDIRECT = '''<html><head>
 </body></html>'''
 
 
-
 @app.route('/')
 def index():
     return HTML_INDEX
