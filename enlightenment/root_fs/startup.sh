@@ -27,8 +27,8 @@ if [ -e /ssl/No.VNC.crt.pem ]
 then
   echo "self-signed certificate found"
 else
-  echo "generating self-signed certificate"
-  openssl req -subj "/CN=NoVNC/O=NA/C=NA/ST=NA/L=NA"  -sha256 -new -newkey rsa:4096 -days 365 -nodes -x509 -keyout "/ssl/No.VNC.key.pem" -out "/ssl/No.VNC.crt.pem" 
+  echo "generating self-signed certificate: $(hostname)"
+  openssl req -subj "/CN=$(hostname)/O=NA/C=NA/ST=NA/L=NA"  -sha256 -new -newkey rsa:4096 -days 365 -nodes -x509 -keyout "/ssl/No.VNC.key.pem" -out "/ssl/No.VNC.crt.pem" 
 fi
 
 cd /usr/lib/web && ./run.py > /var/log/web.log 2>&1 &
