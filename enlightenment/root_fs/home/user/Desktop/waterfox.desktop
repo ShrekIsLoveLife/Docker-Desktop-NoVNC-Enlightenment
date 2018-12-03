@@ -1,0 +1,29 @@
+[Desktop Entry]
+Hidden=false
+Actions=new-window;new-private-window;
+Exec=waterfox %u
+Icon=waterfox
+Type=Application
+NoDisplay=false
+Version=1.0
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;
+StartupNotify=true
+StartupWMClass=
+GenericName[en_US]=Web Browser
+X-MultipleArgs=false
+Keywords=Internet;WWW;Browser;Web;Explorer;
+Comment=Browse the World Wide Web
+DBusActivatable=false
+Categories=GNOME;GTK;Network;WebBrowser;
+Terminal=false
+Name=Waterfox Web Browser
+GenericName=Web Browser
+Icon[en_US]=waterfox
+Name[en_US]=Waterfox Web Browser
+Comment[en_US]=Browse the World Wide Web
+[Desktop Action new-window]
+Exec=waterfox -new-window
+Name[en_US]=Open a New Window
+[Desktop Action new-private-window]
+Exec=waterfox -private-window
+Name[en_US]=Open a New Private Window

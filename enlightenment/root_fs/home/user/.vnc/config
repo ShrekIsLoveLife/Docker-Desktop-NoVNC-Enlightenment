@@ -10,3 +10,4 @@
 securitytypes=None
 geometry=800x600
 securitytypes=vncauth
+securitytypes=vncauth

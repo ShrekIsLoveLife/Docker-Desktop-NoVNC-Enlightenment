@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:16.04
 MAINTAINER Shrek Is Love <github.com/ShrekIsLoveLife>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -6,9 +6,13 @@ ENV DEBIAN_FRONTEND noninteractive
 # built-in packages
 RUN apt-get update -o APT::Get::List-Cleanup=false
 # RUN apt-get update
-RUN apt-get -y --no-install-recommends install  python-software-properties software-properties-common
+RUN apt-get -y --no-install-recommends install  python-software-properties software-properties-common curl
 # firefox-esr ppa
-RUN add-apt-repository ppa:mozillateam/ppa
+# RUN add-apt-repository ppa:mozillateam/ppa
+# switching firefox-esr to waterfox
+RUN sh -c "echo 'deb http://download.opensuse.org/repositories/home:/hawkeye116477:/waterfox/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/home:hawkeye116477:waterfox.list"
+RUN curl -L https://download.opensuse.org/repositories/home:hawkeye116477:waterfox/xUbuntu_16.04/Release.key | apt-key add - 
+
 # enlightment ppa
 RUN add-apt-repository ppa:niko2040/e19
 # RUN apt-get update
@@ -35,7 +39,8 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated \
   libtasn1-3-bin \
   libglu1-mesa \
   xorg \
-  firefox-esr \
+  waterfox \
+  # firefox-esr \
   locales
 
 RUN locale-gen en_US en_US.UTF-8
