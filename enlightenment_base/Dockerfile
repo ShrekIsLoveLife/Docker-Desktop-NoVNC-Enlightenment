@@ -17,9 +17,10 @@ RUN curl -L https://download.opensuse.org/repositories/home:hawkeye116477:waterf
 RUN add-apt-repository ppa:niko2040/e19
 # RUN apt-get update
 # I hate having to run this twice
-RUN apt-get update -o APT::Get::List-Cleanup=false -o Dir::Etc::sourcelist=/etc/apt/sources.list.d/
+# RUN apt-get update -o APT::Get::List-Cleanup=false -o Dir::Etc::sourcelist=/etc/apt/sources.list.d/
+RUN apt-get update
 
-RUN apt-get -y upgrade
+# RUN apt-get -y upgrade
 
 
 RUN apt-get install -y --no-install-recommends --allow-unauthenticated \
@@ -40,6 +41,7 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated \
   libglu1-mesa \
   xorg \
   waterfox \
+  rsync \
   # firefox-esr \
   locales
 
