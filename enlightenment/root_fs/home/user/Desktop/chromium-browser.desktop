@@ -1,0 +1,32 @@
+[Desktop Action Incognito]
+Exec=chromium-browser --incognito
+Name[en_US]=Open a New Window in incognito mode
+[Desktop Entry]
+Hidden=false
+Actions=NewWindow;Incognito;TempProfile;
+Exec=chromium-browser --no-sandbox %U
+Icon=chromium-browser
+X-AppInstall-Package=chromium-browser
+Type=Application
+NoDisplay=false
+Version=1.0
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+StartupWMClass=
+GenericName[en_US]=Web Browser
+Comment=Access the Internet
+X-MultipleArgs=false
+DBusActivatable=false
+Categories=Network;WebBrowser;
+Terminal=false
+Name=Chromium Web Browser
+GenericName=Web Browser
+Icon[en_US]=chromium-browser
+Name[en_US]=Chromium Web Browser
+Comment[en_US]=Access the Internet
+[Desktop Action NewWindow]
+Exec=chromium-browser
+Name[en_US]=Open a New Window
+[Desktop Action TempProfile]
+Exec=chromium-browser --temp-profile
+Name[en_US]=Open a New Window with a temporary profile

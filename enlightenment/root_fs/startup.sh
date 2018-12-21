@@ -6,6 +6,12 @@ chown -R root:root /root
 chown -R user:user /home/user
 # usermod -aG sudo user
 
+mkdir -p /home/user/Downloads/profiles/chromium
+chown user: /home/user/Downloads/profiles/chromium
+ln -s /home/user/Downloads/profiles/chromium/ /home/user/.config/chromium
+rm /usr/share/applications/chromium-browser.desktop
+cp /home/user/Desktop/chromium-browser.desktop /usr/share/applications/
+
 if [[ ! -v VNC_PW ]]; then
   echo "VNC_PW is not set"
   rm -rf /home/user/.vnc/passwd
