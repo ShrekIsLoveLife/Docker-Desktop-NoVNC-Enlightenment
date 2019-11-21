@@ -27,6 +27,7 @@ else
   echo 'securitytypes=vncauth' >> /home/user/.vnc/config
 fi
 
+sudo rm -rf /tmp/.X*
 sudo -u user vncserver
 mkdir /ssl/
 if [ -e /ssl/No.VNC.crt.pem ]
